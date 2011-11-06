@@ -16,7 +16,7 @@ class GEDA:
     def parse(self, filename):
         """ Parse a gEDA file into a design """
         design = design()
-        f = open(filename, "w")
+        f = open(filename, "r")
         #TODO: Read!
         f.close()
         return design
