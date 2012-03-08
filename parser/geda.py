@@ -1292,15 +1292,3 @@ def find_symbols(symbol_dirs):
 
                         filename, dummy = os.path.splitext(filename)
                         known_symbols[filename] = filepath
-
-<<<<<<< HEAD
-    def parse(self, filename):
-        """ Parse a gEDA file into a design """
-        design = design()
-        f = open(filename, "r")
-        #TODO: Read!
-        f.close()
-        return design
-=======
-    return known_symbols
->>>>>>> eca10d46782d6e505a194ce241fc58c370718787
