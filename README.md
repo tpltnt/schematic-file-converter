@@ -8,6 +8,7 @@ Folder Contents
 
 * `core/` - All of the converter code
 * `doc/` - Everything related to documentation
+* `library/` - Library files for the software packages that dont export complete files
 * `parser/` - All of the in code
 * `test/` - A set of test files for each format
 * `writer/` - All of the out code
@@ -17,12 +18,19 @@ Usage
 ---------------
 
 ```bash
-./upconvert.py -i test.sch -f kicad -t json -o test.json
+usage: upconvert.py [-h] [-i INPUT] [-f TYPE] [-o OUTPUT] [-s SYMDIRS [SYMDIRS ...]] [-t TYPE]
 
--i: input file
--f: from format
--t: to format
--o: output file
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT, --input INPUT
+                        read INPUT file in
+  -f TYPE, --from TYPE  read input file as TYPE
+  -o OUTPUT, --output OUTPUT
+                        write OUTPUT file out
+  -s SYMDIRS [SYMDIRS ...], --sym-dirs SYMDIRS [SYMDIRS ...]
+                        specify SYMDIRS to search for .sym files (for gEDA
+                        only)
+  -t TYPE, --to TYPE    write output file as TYPE
 ```
 
 
@@ -33,27 +41,47 @@ Where to Get Help
 ./upconvert.py -h
 ```
 
+  Github: Submit an issue, or pull request.
+  Email: support@upverter.com
+
 
 Supported Formats
 ---------------
 
-  The converter started with support for KiCad. We have since been expanding it to support many of the popular open and closed source formats, as follows.
+  The converter can import and export in the following popular open and closed source formats.
+
 * KiCad
-* Eagle (in development)
-* gEDA (in development)
-* Fritzing (in development)
-* Altium (in development)
+* gEDA
+* Eagle     (in testing)
+* Eagle XML (in testing)
+* Fritzing  (in testing)
 
 
 Format Wish List
 ---------------
 
-  This is the list of formats we wish we supported, and will work on someday (hopefully soon!). We are looking for developers to help us so please ping us if you're interested!
-* DXDesigner & PADs
+  This is the list of formats we wish we supported, and will work on or finish someday soon. We are looking for developers to help us so please ping us if you're interested!
+
+* Altium     (in development)
+* Gerber     (in development)
+* ViewDraw   (in development)
+* DXDesigner
+* PADs
 * Alegro
 * OrCad
+* DSN
 
-More in the todo list [TODO.md](https://github.com/upverter/schematic-file-converter/blob/master/TODO.md).
+
+Exports
+---------------
+
+  This is the list of formats we can export too, given an import with the required info in it. These are currently all in development.
+
+* BOM (Bill of Materials) in CSV format
+* Netlist in CSV format
+* Netlist in Telesis format
+* Layout Data in RS274-X (Gerber) format
+* Drill Data in Excellon format
 
 
 The Concept
@@ -66,3 +94,9 @@ Interchange Format Documentation
 ---------------
 
   The converter is based on the Upverter Open JSON Format fully documented at http://upverter.com/resources/open-json-format/. We hope that someday all of the major providers of schematic capture software will support interoperability with open formats like this one.
+
+
+Licence
+---------------
+
+  http://www.apache.org/licenses/LICENSE-2.0.html
