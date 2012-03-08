@@ -8,3 +8,4 @@ doc/sphinx
 .sconsign.dblite
 .coverage
 *,cover
+tmp/
